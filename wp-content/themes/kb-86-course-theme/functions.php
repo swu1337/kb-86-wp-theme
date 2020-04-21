@@ -81,6 +81,8 @@ class CourseSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+		$context['login'] = wp_login_url(get_permalink());
+		$context['logout'] = wp_logout_url(get_permalink());
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
@@ -158,3 +160,15 @@ function theme_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');
+
+
+function add_login_logout_link($items, $args) {
+        ob_start();
+        wp_loginout('index.php');
+        $loginoutlink = ob_get_contents();
+        ob_end_clean();
+        $items .= '<li>'. $loginoutlink .'</li>';
+    return $items;
+}
+
+add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);

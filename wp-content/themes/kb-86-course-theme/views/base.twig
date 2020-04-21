@@ -11,12 +11,12 @@
 		<main class="main__site">
 			<header class="header section__wrapper">
 				{% block header %}
-				<section>
-					<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{ html.logo() }}</a>
-					<nav id="nav-main" class="nav--main" role="navigation">
-						{% include "menu.twig" with {'items': menu.get_items} %}
-					</nav><!-- #nav -->
-				</section>
+					<section class="header__section">
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{ html.logo() }}</a>
+						<nav id="nav-main" class="nav--main" role="navigation">
+							{% include "menu.twig" with {'items': menu.get_items} %}
+						</nav><!-- #nav -->
+					</section>
 				{% endblock %}
 			</header>
 
