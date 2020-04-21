@@ -1,2 +1,3 @@
-# kb-86-wp-theme
-Wordpress Theme for Course KB-86
+# kb-86-theme
+
+# Theme for the minor website by Steven Wu
