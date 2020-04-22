@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Heebo', sans-serif;
 }
 
+p {
+  font-family: 'Karla', sans-serif;
+}
+
 .content-wrapper {
   width: 100%;
 }
@@ -104,7 +108,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin-top: 4rem;
+  margin-top: 4rem; 
+  margin-bottom: 4rem;
 }
 
 .intro_hero__description {
@@ -156,4 +161,35 @@ h1, h2, h3, h4, h5, h6 {
 .button--intro:hover, .button--intro:hover .button__svg {
   stroke: var(--c-secondary);
 }
+
+.intro_text {
+  padding-top: 9rem;
+}
+
+.intro_text__sub {
+  font-family: 'Heebo';
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.intro_text__description {
+
+}
+
+.intro_text__description h2 {
+  font-size: 3.5rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.intro_text__description p {
+  font-size: 1.1rem;
+  padding: 2rem 0;
+  line-height: 1.8rem;
+}
+
+
+
 
