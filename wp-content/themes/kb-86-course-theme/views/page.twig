@@ -21,6 +21,21 @@
 									} 
 								%}
 							{% endif %}
+							{% if layout.acf_fc_layout == 'text_left_image_right' %}
+								{% include "layouts/text_left_image_right.twig" with {
+									'fields': layout,
+									'class': layout.acf_fc_layout ~ '__section'
+									} 
+								%}
+							{% endif %}
+							{% if layout.acf_fc_layout == 'text_right_image_left' %}
+								{% include "layouts/text_left_image_right.twig" with {
+									'fields': layout,
+									'class': layout.acf_fc_layout ~ '__section',
+									'reverse': true
+									} 
+								%}
+							{% endif %}
 						{% endfor %}
 					</div>
 				{% endif %}	

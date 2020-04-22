@@ -190,6 +190,37 @@ p {
   line-height: 1.8rem;
 }
 
+.text-and-image {
+  padding-top: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
 
+.text-and-image--reverse {
+  flex-direction: row-reverse;
+}
 
+.text-and-image__description {
+  flex: 1 0 45%;
+  max-width: 45%
+}
+
+.text-and-image__figure {
+  flex: 1 0 45%;
+  max-width: 45%;
+}
+
+.text-and-image__media {
+  width: 100%;
+  height: auto;
+}
+
+.text-and-image__description h3 {
+  font-size: 2rem;
+}
+
+.text-and-image__description p {
+  padding-top: 1.2rem;
+  line-height: 1.7rem;
+}
 

@@ -1,0 +1,21 @@
+<section class="{{ class }} section__wrapper">
+  {% if reverse %}
+    <div class="text-and-image text-and-image--reverse">
+      <div class="text-and-image__description">
+        {{ fields.description }}
+      </div>
+      <figure class="text-and-image__figure">
+        <img src="{{ fields.image_source.url | resize(585, 356) }}" alt="" class="text-and-image__media" />
+      </figure>
+    </div>
+  {% else %}
+    <div class="text-and-image">
+      <div class="text-and-image__description">
+        {{ fields.description }}
+      </div>
+      <figure class="text-and-image__figure">
+        <img src="{{ fields.image_source.url | resize(585, 356) }}" alt="" class="text-and-image__media" />
+      </figure>
+    </div>
+  {% endif %}
+</section>
