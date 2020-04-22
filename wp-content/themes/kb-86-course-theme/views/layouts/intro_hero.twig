@@ -1,0 +1,17 @@
+<section class="{{ class }} section__wrapper">
+  <div class="vertical-bar">
+    <div class="vertical-bar__line"></div>
+    <p class="vertical-bar__text">{{ fields.course_code }}</p>
+  </div>
+  <div class="intro_hero__description">
+    {{ fields.description }}
+    <a href="" class="button--intro">
+      <svg class="button__svg"xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </a>
+  </div>
+  <div class="image_hero__image">
+    <figure class="image_hero__figure">
+      <img src="{{ fields.image_hero.url | resize(570, 376) }}" alt="" class="image_hero__media" />
+    </figure>
+  </div>
+</section>
