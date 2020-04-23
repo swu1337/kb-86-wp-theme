@@ -43,6 +43,13 @@
 									} 
 								%}
 							{% endif %}
+							{% if layout.acf_fc_layout == 'tease_posts' %}
+								{% include "layouts/tease_posts.twig" with {
+									'fields': layout,
+									'class': layout.acf_fc_layout ~ '__section'
+									} 
+								%}
+							{% endif %}
 						{% endfor %}
 					</div>
 				{% endif %}	
