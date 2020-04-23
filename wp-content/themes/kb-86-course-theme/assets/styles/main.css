@@ -1,6 +1,8 @@
 :root {
   --c-primary: #223343;
-  --c-secondary: #FFB700; 
+  --c-secondary: #FFB700;
+  --f-heading: 'Heebo', sans-serif;
+  --f-body: 'Karla', sans-serif;
 }
 
 * {
@@ -10,15 +12,15 @@
 
 body {
   font-size: 16px;
-  font-family: 'Karla', sans-serif;
+  font-family: var(--f-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Heebo', sans-serif;
+  font-family: var(--f-heading);
 }
 
 p {
-  font-family: 'Karla', sans-serif;
+  font-family: var(--f-body);
 }
 
 .content-wrapper {
@@ -215,12 +217,68 @@ p {
   height: auto;
 }
 
-.text-and-image__description h3 {
+.description h3 {
   font-size: 2rem;
 }
 
-.text-and-image__description p {
+.description p {
   padding-top: 1.2rem;
   line-height: 1.7rem;
+}
+
+.text-and-image--align-start {
+  align-items: flex-start;
+}
+
+.text-and-image--align-center {
+  align-items: center;
+}
+
+.text-and-image--align-end {
+  align-items: flex-end;
+}
+
+.text-and-blocks {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-and-blocks__description {
+  flex: 1 0 45%;
+  max-width: 45%;
+}
+
+.text-and-blocks__blocks {
+  display: flex;
+  flex: 1 0 45%;
+  max-width: 45%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.text-and-blocks__block {
+  flex: 1 0 47%;
+  max-width: 47%;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+}
+
+.text-and-blocks__block-content {
+  padding: 1.5rem;
+}
+
+.text-and-blocks__block-subtitle {
+  text-transform: uppercase;
+  font-family: var(--f-heading);
+  font-size: .8rem;
+}
+
+.text-and-blocks__block-title {
+  font-family: var(--f-body);
+  font-size: 1.8rem;
+  padding-top: .3rem;
+  font-weight: 700;
 }
 

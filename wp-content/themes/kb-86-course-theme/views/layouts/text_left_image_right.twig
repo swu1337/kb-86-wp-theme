@@ -1,6 +1,6 @@
-<section class="{{ class }} section__wrapper">
+{# <section class="{{ class }} section__wrapper">
   {% if reverse %}
-    <div class="text-and-image text-and-image--reverse">
+    <div class="text-and-image text-and-image--align-{{ fields.vertical_alignment }} text-and-image--reverse">
       <div class="text-and-image__description">
         {{ fields.description }}
       </div>
@@ -9,7 +9,7 @@
       </figure>
     </div>
   {% else %}
-    <div class="text-and-image">
+    <div class="text-and-image text-and-image--align-{{ fields.vertical_alignment }}">
       <div class="text-and-image__description">
         {{ fields.description }}
       </div>
@@ -18,4 +18,15 @@
       </figure>
     </div>
   {% endif %}
+</section> #}
+
+<section class="{{ class }} section__wrapper">
+  <div class="text-and-image text-and-image--align-{{ fields.vertical_alignment }} {% if reverse %}text-and-image--reverse{% endif %}">
+    <div class="text-and-image__description description">
+      {{ fields.description }}
+    </div>
+    <figure class="text-and-image__figure">
+      <img src="{{ fields.image_source.url | resize(585, 356) }}" alt="" class="text-and-image__media" />
+    </figure>
+  </div>
 </section>

@@ -36,6 +36,13 @@
 									} 
 								%}
 							{% endif %}
+							{% if layout.acf_fc_layout == 'text_left_blocks_right' %}
+								{% include "layouts/text_left_blocks_right.twig" with {
+									'fields': layout,
+									'class': layout.acf_fc_layout ~ '__section'
+									} 
+								%}
+							{% endif %}
 						{% endfor %}
 					</div>
 				{% endif %}	

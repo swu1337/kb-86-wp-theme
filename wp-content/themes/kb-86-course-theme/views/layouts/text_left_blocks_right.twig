@@ -1,0 +1,17 @@
+<section class="{{ class }} section__wrapper">
+  <div class="text-and-blocks">
+    <div class="text-and-blocks__description description">
+      {{ fields.description }}
+    </div>
+    <div class="text-and-blocks__blocks">
+      {% for block in fields.blocks %}
+        <div class="text-and-blocks__block">
+          <div class="text-and-blocks__block-content">
+            <p class="text-and-blocks__block-subtitle">{{ block.subtitle }}</p>
+            <h4 class="text-and-blocks__block-title">{{ block.title }}</h4>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
