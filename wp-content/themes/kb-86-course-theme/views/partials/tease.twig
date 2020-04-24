@@ -1,0 +1,26 @@
+{% import "macros/html.twig" as html %}
+
+{% if post %}
+  <article class="post-preview">
+    <figure class="post-preview__figure">
+      {% if post.get_thumbnail %}
+        <img src="{{ post.thumbnail.src }}" alt="" class="post-preview__media" />
+      {% else %}
+        <div class="post-preview__media post-preview__media--placeholder">
+          {{ html.icon('blog', 'post-preview__svg') }}
+        </div>
+      {% endif %}
+    </figure>
+    <div class="post-preview__excerpt">
+      <div class="post-preview__excerpt-content">
+        <h3 class="post-preview__title">{{ post.title }}</h3>
+        <span class="post-preview__byline">By <a href="{{ post.author.link }}" class="post-preview__byline-link">{{ post.author }}</a></span>
+        <p class="post-preview__text">{{ post.preview.length(35).force.read_more(false) }}</p>
+        {% block link %}
+          <a href="{{ post.link }}" class="post-preview__button">Lees verder<span class="post-preview__icon">{{ html.icon('arrow-right', 'post-preview__icon-svg') }}</span></a>
+        {% endblock %}
+      </div>
+    </div>
+  </article>
+{% endif %}
+

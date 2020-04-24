@@ -169,7 +169,7 @@ a {
 }
 
 .intro_text {
-  padding-top: 9rem;
+  padding-top: 12rem;
 }
 
 .intro_text__sub {
@@ -301,7 +301,9 @@ a {
   flex: 1 0 31%;
   max-width: 31%;
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.16);
   border-radius: 0 0 6px 6px;
+  margin-bottom: 3rem;
 }
 
 .post-preview:hover {
@@ -311,7 +313,6 @@ a {
 .post-preview__link{
   text-decoration: none;
   color: var(--c-primary);
-
 }
 
 .post-preview:hover .post-preview__media {
@@ -397,6 +398,15 @@ a {
   margin: 4rem auto 0 auto;
 }
 
+.post-preview__icon {
+  display: inline-block; 
+  padding-left: .6rem;
+}
+
+.post-preview__icon-svg {
+  vertical-align: middle;
+}
+
 .process-line {
   margin-top: 3rem;
 }
@@ -436,4 +446,86 @@ a {
   padding-left: 0;
   color: white;
 }
+
+.blog-overview__description {
+  font-size: 1.1rem;
+  padding: 2rem 0;
+  line-height: 1.8rem;
+}
+
+.blog-overview__description h1 {
+  font-size: 3.5rem;
+}
+
+.blog-overview__description p {
+  font-size: 1.1rem;
+  padding: 2rem 0;
+  line-height: 1.8rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination__list {
+  list-style-type: none;
+  display: flex;
+}
+
+.pagination__item,
+.pagination__next,
+.pagination__prev {
+  border-radius: 6px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--c-primary);
+  margin-left: .3rem;
+  overflow: hidden;
+}
+
+.pagination__link {
+  color: var(--c-primary);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+a.pagination__link:hover {
+  text-decoration: none;
+  color: var(--c-secondary);
+}
+
+.pagination__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.is-disabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: #D7D7D7
+}
+
+.is-disabled .pagination__icon {
+  stroke: #D7D7D7;
+}
+
+.is-current .pagination__link {
+  cursor: pointer;
+  background-color: var(--c-secondary);
+  color: var(--c-primary);
+}
+
+/* .pagination__next, .pagination__prev {
+  display: block;
+  padding: 1rem;
+  border: 1px solid var(--c-primary);
+} */
+
+
 

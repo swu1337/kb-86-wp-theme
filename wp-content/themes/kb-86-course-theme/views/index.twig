@@ -1,10 +1,25 @@
+{% import "macros/html.twig" as html %}
+
 {% extends "base.twig" %}
+{% set class = 'blog-overview__wrapper' %}
 
 {% block content %}
-<h1>this is index.twig</h1>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-	
-	{% include 'partials/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	<section class="{{ class }} section__wrapper">
+		<div class="blog-overview__description">
+			{{ post.description }}
+		</div>
+		<div class="tease-posts__collections">
+			{% for post in posts %}
+				{% include 'partials/tease.twig' with {
+					'post' : post
+				} %}
+			{% endfor %}
+		</div>
+
+		{% if posts.pagination %}
+			{% include 'partials/pagination.twig' with {
+				'pagination' : posts.pagination() 
+			} %}
+		{% endif %}	
+	</section>
 {% endblock %}

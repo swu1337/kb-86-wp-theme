@@ -156,6 +156,7 @@ add_action( 'init', function() {
 */
 function theme_styles() {
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/assets/styles/vendors/normalize.css' );
+	wp_enqueue_style( 'blocks', get_template_directory_uri() . '/assets/styles/blocks.css' );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css' );
 }
 

@@ -1,0 +1,5 @@
+{% extends "partials/tease.twig" %}
+
+{% block link %}
+  <a href="{{ post.link }}" class="post-preview__button">{{ fields.single_post_button_text }}<span class="post-preview__icon">{{ html.icon('arrow-right', 'post-preview__icon-svg') }}</span></a>
+{% endblock %}
