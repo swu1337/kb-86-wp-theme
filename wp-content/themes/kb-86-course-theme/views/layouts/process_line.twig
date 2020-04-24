@@ -1,0 +1,16 @@
+{% import "macros/html.twig" as html %}
+
+<section class="{{ class }} section__wrapper">
+  <div class="process-line">
+    {% if fields.processes %}
+      <div class="process-line__processes">
+        {% for process in fields.processes %}
+          <p class="process-line__process">{{ process.text }}</p>
+          {% if loop.last == false %}
+            <span class="process-line__arrow"> {{ html.icon('arrow-right', 'process-line__svg') }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

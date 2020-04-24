@@ -23,11 +23,12 @@
                   <h3 class="post-preview__title">{{ post.title }}</h3>
                   <span class="post-preview__byline">By <a href="{{ post.author.link }}" class="post-preview__byline-link">{{ post.author }}</a></span>
                   <p class="post-preview__text">{{ post.preview.length(35).force.read_more(false) }}</p>
-                  <a href="{{ post.link }}" class="post-preview__button">Read more</a>
+                  <a href="{{ post.link }}" class="post-preview__button">{{ fields.single_post_button_text }}</a>
                 </div>
               </div>
           </article>
         {% endfor %}
+        <a class="post-preview__button post-preview__button--view-all" href="{{ fields.view_all_button.link }}">{{ fields.view_all_button.text }}</a>
       </div>
     </div>
   </section>

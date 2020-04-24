@@ -50,6 +50,13 @@
 									} 
 								%}
 							{% endif %}
+							{% if layout.acf_fc_layout == 'process_line' %}
+								{% include "layouts/process_line.twig" with {
+									'fields': layout,
+									'class': layout.acf_fc_layout ~ '__section'
+									} 
+								%}
+							{% endif %}
 						{% endfor %}
 					</div>
 				{% endif %}	
