@@ -54,7 +54,7 @@
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large,
 .wp-block-verse,
-.wp-block-video:not(.alignwide):not(.alignfull) {
+wp-block-video.:not(.alignwide):not(.alignfull) {
 	margin-bottom: 3rem;
 	margin-top: 3rem;
 }
@@ -155,9 +155,24 @@
 .wp-block-embed figcaption,
 .wp-block-image figcaption {
 	color: #6d6d6d;
-	font-size: 1.4rem;
+	font-size: 1rem;
 	margin-bottom: 0;
-	margin-top: 1.5rem;
+	margin-top: .8rem;
+	line-height: 1.3rem;
+}
+
+.wp-block-embed__wrapper iframe {
+	width: 100%;
+	height: 500px;
+}
+
+.wp-block-video {
+	margin: 2rem 0;
+}
+
+.wp-block-video video {
+	width: 100%;
+	height: 500px;
 }
 
 /* Block: Audio ------------------------------ */
@@ -652,7 +667,11 @@ figure.wp-block-table.is-style-stripes {
 
 .entry-content p,
 .entry-content li {
-	line-height: 1.4;
+	line-height: 2rem;
+}
+
+.entry-content li {
+	margin: 0.5rem 0 0 1.2rem;
 }
 
 .entry-content h1,
@@ -684,6 +703,7 @@ figure.wp-block-table.is-style-stripes {
 .entry-content dt {
 	font-family: 'Karla', sans-serif;
 	letter-spacing: normal;
+	font-size: 1.2rem;
 }
 
 .entry-content cite,
@@ -693,7 +713,6 @@ figure.wp-block-table.is-style-stripes {
 }
 
 @supports ( font-variation-settings: normal ) {
-
 	.entry-content cite,
 	.entry-content figcaption,
 	.entry-content .wp-caption-text {

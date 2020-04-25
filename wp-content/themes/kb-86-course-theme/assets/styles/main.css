@@ -521,11 +521,11 @@ a.pagination__link:hover {
   color: var(--c-primary);
 }
 
-/* .pagination__next, .pagination__prev {
-  display: block;
-  padding: 1rem;
-  border: 1px solid var(--c-primary);
-} */
+.post-thumbnail__figure {
 
+}
 
-
+.article__content .article__title {
+  margin-top: 2rem;
+  font-size: 3.5rem;
+}

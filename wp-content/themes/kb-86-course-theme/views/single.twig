@@ -3,28 +3,31 @@
 {% block content %}
 	<div class="content-wrapper">
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content entry-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<a href="{{ post.link }}">{{ _e('edit') }}</a>
-				<p class="blog-author">
+			<figure class="post-thumbnail__figure section__wrapper">
+					<img class="post-thumbnail__media" src="{{ post.thumbnail.src|resize(1300, 350) }}" />
+			</figure>
+			<section class="article__content entry-content">
+				<h1 class="article__title">{{ post.title }}</h1>
+				<p class="article__author">
 					<span>By</span><a href="{{ post.author.path }}"> {{ post.author.name }} </a><span>&bull;</span> <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
 				</p>
-				<div class="article-body">
+				<div class="article__body">
 					{{ post.content }}
 				</div>
 			</section>
 
 			<!-- comment box -->
-			<section class="comment-box">
+			<section class="comment__box">
 				<!-- comments -->
 				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
+					{% if post.comments %}
+						<h3> comments </h3>
+						{% for cmt in post.comments %}
+							{% include "comment.twig" with {
+								'comment' : cmt 
+							} %}
+						{% endfor %}
+					{% endif %}
 				</div>
 
 				{% if post.comment_status == "closed" %}

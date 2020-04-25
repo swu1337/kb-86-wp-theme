@@ -8,7 +8,9 @@
       </div>
       <div class="tease-posts__collections">
         {% for post in posts %}
-          {% include "partials/tease-home.twig" with {'post': post} %}
+          {% include "partials/tease-home.twig" with {
+            'post': post
+          } %}
         {% endfor %}
         <a class="post-preview__button post-preview__button--view-all" href="{{ fields.view_all_button.link }}">{{ fields.view_all_button.text }}</a>
       </div>
