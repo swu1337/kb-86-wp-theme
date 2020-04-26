@@ -6,14 +6,11 @@
             {% if pagination.prev %}
                 <a href="{{ pagination.prev.link }}" class="pagination__link">
                     {{ html.icon('chevron-left', 'pagination__icon') }} 
-                    {# <span>{{ __('Previous') }}</span> #}
                 </a>
             {% else %}
                 {{ html.icon('chevron-left', 'pagination__icon') }} 
-                {# <span>{{ __('Previous') }}</span> #}
             {% endif %}
         </div>
-
         <ul class="pagination__list">
             {% for page in pagination.pages %}
                 <li class="pagination__item{% if page.current %} is-current{% endif %}">
@@ -25,16 +22,13 @@
                 </li>
             {% endfor %}
         </ul>
-
         <div class="pagination__next{% if not pagination.next %} is-disabled{% endif %}">
             {% if pagination.next %}
                 <a href="{{ pagination.next.link }}" class="pagination__link">
                     {{ html.icon('chevron-right', 'pagination__icon') }} 
-                    {# <span>{{ __('Next') }}</span> #}
                 </a>
             {% else %}
                 {{ html.icon('chevron-right', 'pagination__icon') }} 
-                {# <span>{{ __('Next') }}</span> #}
             {% endif %}
         </div>
     </div>

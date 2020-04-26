@@ -14,7 +14,10 @@
     <div class="post-preview__excerpt">
       <div class="post-preview__excerpt-content">
         <h3 class="post-preview__title">{{ post.title }}</h3>
-        <span class="post-preview__byline">By <a href="{{ post.author.link }}" class="post-preview__byline-link">{{ post.author }}</a></span>
+        <div class="post-preview__byline">
+          <span class="post-preview__byline-icon">{{ html.icon('user', 'post-preview__byline-svg') }}</span>
+          <span>By <a href="{{ post.author.link }}" class="post-preview__byline-link">{{ post.author }}</a></span>
+        </div>
         <p class="post-preview__text">{{ post.preview.length(35).force.read_more(false) }}</p>
         {% block link %}
           <a href="{{ post.link }}" class="post-preview__button">Lees verder<span class="post-preview__icon">{{ html.icon('arrow-right', 'post-preview__icon-svg') }}</span></a>

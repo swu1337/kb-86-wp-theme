@@ -1,21 +1,35 @@
-<div class="blog-comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
-	<h5 class="comment-author">{{comment.author.name}} says</h5>
-	<div class="comment-content">{{comment.comment_content|wpautop}}</div>
+{% import "macros/html.twig" as html %}
+
+<article class="blog-comment {{ comment.comment_type }}" id="blog-comment-{{ comment.ID }}">
+	<div class="comment__author">
+		<div class="comment__author-avatar">
+			{{ html.icon('user', 'comment__author-svg') }}
+		</div>
+		<div class="comment__content">
+				<h4 class="comment__author-name">{{ comment.author.name }}</h5>
+				<p class="comment__date">{{ comment.date}} at {{ comment.time }}</p>
+		</div>
+		<div class="comment__text">{{ comment.comment_content|wpautop }}</div>
+	</div>
+	
 
 	<section class="comment-box">
-		
 		<!-- comment form -->
-		{% include "comment-form.twig" %}
+		{% include "comment-form.twig" with {
+			'reply' : true,
+			'id': comment.ID
+		} %}
 
 		<!-- child comments -->
 		{% if post.comments %}
-			<h4> replies </h4>
-			<div class="comments">
+			<div class="comments comments__child">
 				{% for cmt in comment.children %}
-					{% include "comment.twig" with {comment:cmt} %}
+					{% include "comment.twig" with {
+						'comment' : cmt
+					} %}
 				{% endfor %}
 			</div>
 		{% endif %}
 
 	</section>
-</div>
+</article>

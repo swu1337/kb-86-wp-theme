@@ -158,6 +158,7 @@ function theme_styles() {
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/assets/styles/vendors/normalize.css' );
 	wp_enqueue_style( 'blocks', get_template_directory_uri() . '/assets/styles/blocks.css' );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css' );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/comment-reply.js' );
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');

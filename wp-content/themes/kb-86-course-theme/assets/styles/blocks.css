@@ -54,7 +54,7 @@
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large,
 .wp-block-verse,
-wp-block-video.:not(.alignwide):not(.alignfull) {
+.wp-block-video:not(.alignwide):not(.alignfull) {
 	margin-bottom: 3rem;
 	margin-top: 3rem;
 }
@@ -161,6 +161,10 @@ wp-block-video.:not(.alignwide):not(.alignfull) {
 	line-height: 1.3rem;
 }
 
+.wp-block-embed {
+	margin: 1.5rem 0;
+}
+
 .wp-block-embed__wrapper iframe {
 	width: 100%;
 	height: 500px;
@@ -173,6 +177,10 @@ wp-block-video.:not(.alignwide):not(.alignfull) {
 .wp-block-video video {
 	width: 100%;
 	height: 500px;
+}
+
+.wp-block-image {
+	margin: 1.5rem 0;
 }
 
 /* Block: Audio ------------------------------ */

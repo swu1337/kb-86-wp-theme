@@ -1,3 +1,5 @@
+{% import "macros/html.twig" as html %}
+
 {% extends "base.twig" %}
 
 {% block content %}
@@ -8,20 +10,33 @@
 			</figure>
 			<section class="article__content entry-content">
 				<h1 class="article__title">{{ post.title }}</h1>
-				<p class="article__author">
-					<span>By</span><a href="{{ post.author.path }}"> {{ post.author.name }} </a><span>&bull;</span> <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-				</p>
+				<div class="article__author">
+					<div class="article__byline">
+						<span class="article__byline-icon">{{ html.icon('user', 'article__byline-svg') }}</span>
+						<span class="article__byline-text">By<a href="{{ post.author.path }}"> {{ post.author.name }} </a></span>
+					</div>
+					<div class="article__byline">
+						<span class="article__byline-icon">{{ html.icon('calender', 'article__byline-svg') }}</span>
+						<span class="article__byline-text"><time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time></span>
+					</div>
+				</div>
 				<div class="article__body">
 					{{ post.content }}
+					<div class="section__divider"></div>
 				</div>
 			</section>
-
+			
 			<!-- comment box -->
 			<section class="comment__box">
+
 				<!-- comments -->
 				<div class="comments">
 					{% if post.comments %}
-						<h3> comments </h3>
+						{% if post.comments|length > 0 %}
+							<h2 class="comments__title">{{ post.comments|length }} {{ post.comments|length > 1 ? 'replies' : 'reply' }} on "{{ post.title }}"</h2>
+						{% else %}						
+						{% endif %}
+
 						{% for cmt in post.comments %}
 							{% include "comment.twig" with {
 								'comment' : cmt 
@@ -31,10 +46,12 @@
 				</div>
 
 				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
+					<p> Comments for this post are closed </p>
 				{% else %}
 				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
+						{% include "comment-form.twig" with {
+							'reply' : false,
+						} %}
 				{% endif %}
 			</section>
 		</article>

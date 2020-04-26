@@ -1,28 +1,37 @@
-<div class="comment-form">
-    <h3>Add comment</h3>
-    <form class="comment-form" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
-        {% if  user %}
-            <input type="hidden" name="email" value="{{ user.email }}">
-            <input type="hidden" name="author" value="{{ user.name }}">
-            <input type="hidden" name="url" value="{{ user.link }}">
-        {% else %}
-            <label>Email<br>
-                <input required name="email" type="email" id="email">
-            </label>
-            <label>Name<br>
-                <input required name="author" type="text">
-            </label>
-            <label>Website<br>
-                <input name="url" type="url">
-            </label>
+
+
+<div class="comment__form-section{% if reply %} comment__form--reply{% endif %}">
+    <form class="comment__form{% if reply %} comment__form--hide{% endif %}" method="post" action="{{ site.site_url ~ '/wp-comments-post.php' }}"{% if id%} id="form-id-{{ id }}" {% endif %}>
+        {% if reply %}
+            <button class="button button--cancel" data-form-id="{{ id }}">Cancel Reply</button>
         {% endif %}
-        <label>Comment<br>
-            <textarea placeholder="Leave a comment..." name="comment" cols="60" rows="3"></textarea>
-        </label>
+        <h2 class="comments__title">Leave a comment</h2>
+        <div class="form__wrapper">
+            {% if user %}
+                <input type="hidden" name="email" value="{{ user.email }}">
+                <input type="hidden" name="author" value="{{ user.name }}">
+            {% else %}
+                <div class="form__group">
+                    <label for="email" class="form__label">Email*</label>
+                    <input class="form__input" required name="email" type="email" id="email">
+                </div>
+                <div class="form__group">
+                    <label for"author" class="form__label">Name*</label>   
+                    <input class="form__input" required name="author" type="text" id="author">
+                </div>
+            {% endif %}
+            <div class="form__group form__group--full">
+                <label for="comment" class="form__label">Comment</label>
+                <textarea class="form__comment" placeholder="Leave a comment..." name="comment" cols="45" rows="8" id="comment"></textarea>
+            </div>
+        </div>
+        <p>Your comment will be revised by the site if needed.</p>
+      
         <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
         <input name="comment_parent"  value="{{ comment.ID|default('0') }}" type="hidden">
-        <button type="submit" name="Submit" class="btn">Send</button>
-        <button type="reset">Cancel</button>
-        <p>Your comment will be revised by the site if needed.</p>
+        <button type="submit" name="Submit" class="button button--submit">Comment</button>
     </form>
+    {% if reply %}
+        <button id="button-reply-{{ id }}"class="button button--reply" data-form-id="{{ id }}">Reply</button>
+    {% endif %}
 </div>
